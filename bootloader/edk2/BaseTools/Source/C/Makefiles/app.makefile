@@ -21,7 +21,7 @@ APPLICATION = $(MAKEROOT)/bin/$(APPNAME)
 all: $(MAKEROOT)/bin $(APPLICATION) 
 
 $(APPLICATION): $(OBJECTS) 
-	$(LINKER) -o $(APPLICATION) $(LFLAGS) $(OBJECTS) -L$(MAKEROOT)/libs $(LIBS)
+	$(LINKER) -o $(APPLICATION) $(LFLAGS) $(OBJECTS) -L$(MAKEROOT)/libs -fPIE $(LIBS)
 
 $(OBJECTS): ../Include/Common/BuildVersion.h
 

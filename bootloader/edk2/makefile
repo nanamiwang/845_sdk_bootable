@@ -56,16 +56,16 @@ endif
 all: ABL_FV_ELF
 
 cleanall:
-	@. ./edksetup.sh BaseTools && \
+	+@. ./edksetup.sh BaseTools && \
 	build -p $(WORKSPACE)/QcomModulePkg/QcomModulePkg.dsc -a $(ARCHITECTURE) -t $(TARGET_TOOLS) -b $(TARGET) -j build_modulepkg.log cleanall
 	rm -rf $(WORKSPACE)/QcomModulePkg/Bin64
 
 EDK_TOOLS_BIN:
-	@. ./edksetup.sh BaseTools && \
+	+@. ./edksetup.sh BaseTools && \
 	$(MAKE) -C $(EDK_TOOLS) -j1
 
 ABL_FV_IMG: EDK_TOOLS_BIN
-	@. ./edksetup.sh BaseTools && \
+	+@. ./edksetup.sh BaseTools && \
 	build -p $(WORKSPACE)/QcomModulePkg/QcomModulePkg.dsc \
 	-a $(ARCHITECTURE) \
 	-t $(TARGET_TOOLS) \
